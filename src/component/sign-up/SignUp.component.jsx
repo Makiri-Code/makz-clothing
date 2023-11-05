@@ -27,12 +27,7 @@ const SignUp = () => {
     };
 
     const resetFormFields = () => {
-        setFormFields({
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-        })
+        setFormFields(defaultFormFields)
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,7 +39,9 @@ const SignUp = () => {
         try{
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
             await createUserDocumentFromAuth(user, {displayName})
-           
+            
+            resetFormFields();
+
         } catch(error) {
             if(error.code === 'auth/email-already-in-use'){
                 alert('Email already exists')
@@ -54,7 +51,7 @@ const SignUp = () => {
            
         }
 
-        resetFormFields();
+        
     };
     return (
        <div className="sign-up-container">
