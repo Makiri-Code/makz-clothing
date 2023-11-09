@@ -6,7 +6,7 @@ import './../cart-icon/cart-icon.styles.scss';
 
 const CartICon = () => {
 
-    const {showDropdown, setShowDropdown} = useDropdown();
+    const {showDropdown, setShowDropdown, cartTotal} = useDropdown();
 
     // const handleClick = () => {
     //    if(showDropdown){
@@ -16,13 +16,13 @@ const CartICon = () => {
     //    }
     //    console.log(showDropdown)
     // } 
-
+    
     const toogleShowDropdown = () => setShowDropdown(!showDropdown)
 
     return (
         <div className='cart-icon-container' onClick={toogleShowDropdown}>
             <ShoppingIcon className='shopping-icon' />
-            <span className='item-count'>0</span>
+            <span className='item-count'>{cartTotal}</span>
         </div>
     )
 };

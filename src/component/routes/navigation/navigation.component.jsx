@@ -12,7 +12,6 @@ const Navigation = () => {
 
   const {currentUser} = useUser();
   const {showDropdown} = useDropdown();
-
     return(
       <Fragment>
         <div className="navigation">
@@ -20,6 +19,7 @@ const Navigation = () => {
                 <div><CrwnLogo/></div>
             </Link>
             <div className="nav-links-container">
+        
             <Link className="nav-link" to='/shop'>
                 SHOP
             </Link>

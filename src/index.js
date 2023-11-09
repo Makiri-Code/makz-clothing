@@ -4,9 +4,11 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import { UserProvider} from './component/context/User.Context';
 import { ProductsProvider } from './component/context/ProductsContext';
+import { DropdownProvider } from './component/context/DropdownContext';
+import { ThemeProvider } from './component/context/ThemeContext';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
-import { DropdownProvider } from './component/context/DropdownContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +17,9 @@ root.render(
       <UserProvider>
         <ProductsProvider>
           <DropdownProvider>
-            <App/>
+            <ThemeProvider>
+              <App/>
+            </ThemeProvider>
           </DropdownProvider>
         </ProductsProvider> 
       </UserProvider>
